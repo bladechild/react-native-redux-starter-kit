@@ -38,6 +38,12 @@ const datas = [
     bg: "#00BFFF",
     types: 5
   },
+  {
+    name: "Todo",
+    route: "Todo",
+    icon: "phone-portrait",
+    bg: "#00BFFF"
+  }
 ];
 
 class SideBar extends Component {
