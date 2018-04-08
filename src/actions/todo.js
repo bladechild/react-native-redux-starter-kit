@@ -1,16 +1,32 @@
-export const FETCHALLTODO = "fetch "
+export const FETCHALLTODO = "fetch all";
+export const ADDTODO = 'add todo';
+export const UPDATETODO = 'update todo';
 export const fetchAllTodos = ()=>{
     return {
         type: FETCHALLTODO,
         payload: [
             {
-                id:1,
-                name: "Shoutem App"
+                name: "Shoutem App",
+                complete:false
             },
             {
-                id:2,
-                name: "Rockwell Order"
+                name: "Rockwell Order",
+                complete:false
             }
         ]
     };
 };
+
+export const addTodo =(name)=>{
+    return {
+        type:ADDTODO,
+        payload: {name,complete:false} 
+    };
+};
+
+export const updateTodo = (name,complete)=>{
+    return {
+        type:UPDATETODO,
+        payload:{name,complete}
+    }
+}
