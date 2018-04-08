@@ -1,4 +1,4 @@
-import { FETCHALLTODO,ADDTODO,UPDATETODO } from "../actions/todo";
+import { FETCHALLTODO,ADDTODO,UPDATETODO,DELETETODO } from "../actions/todo";
 export default function(state=[],action){
     switch(action.type)
     {
@@ -10,6 +10,14 @@ export default function(state=[],action){
                     s.complete = action.payload.complete;
                 return s;
             });
+            return nextState;
+        }
+        case DELETETODO: {
+            const nextState = state.reduce((init,ele)=>{
+                if(ele.name!==action.payload.name)
+                    init.push(ele);
+                return init;
+            },[]);
             return nextState;
         }
         default: return state;

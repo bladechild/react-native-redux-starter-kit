@@ -8,7 +8,7 @@ import {
 import {TextInput} from 'react-native'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { fetchAllTodos,addTodo,updateTodo } from '../../actions/todo'
+import { fetchAllTodos,addTodo,updateTodo,deleteTodo } from '../../actions/todo'
 class TodoComponent extends Component {
     constructor(props) {
         super(props);  
@@ -70,7 +70,14 @@ class TodoComponent extends Component {
                         this.props.todo.map((t,index) => {
                             const textDecorationLine = t.complete?'line-through':'none';
                             return (
-                                <Text style={{textDecorationLine,...styles.text}} key={index} value={t.name} onPress={()=>this.completeTodo(t.name,!t.complete)}>{t.name}</Text>
+                                <View key={index}>
+                                    <Text style={{textDecorationLine,...styles.text}} value={t.name} onPress={()=>this.completeTodo(t.name,!t.complete)}>{t.name}</Text>
+                                    <Button
+                                        onPress={()=>this.props.deleteTodo(t.name)}
+                                    >
+                                        <Text>Delete</Text>
+                                    </Button>
+                                </View>
                             );
                         })
                     }
@@ -85,6 +92,7 @@ function mapStateToProps(state) {
 const mapDispatchToProps = dispatch => ({
     fetchAllTodos: () => dispatch(fetchAllTodos()),
     addTodo: (name)=>dispatch(addTodo(name)),
-    updateTodo: (name,complete)=>dispatch(updateTodo(name,complete))
+    updateTodo: (name,complete)=>dispatch(updateTodo(name,complete)),
+    deleteTodo: (name) => dispatch(deleteTodo(name))
 })
 export default connect(mapStateToProps,mapDispatchToProps)(TodoComponent);
