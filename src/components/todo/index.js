@@ -3,7 +3,7 @@ import styles from "./styles";
 import {
     Container, Header, Title,
     Content, Button, Icon, Text, Left,
-    Body, Right, View
+    Body, Right, View, ActionSheet,Badge
 } from "native-base";
 import {TextInput} from 'react-native'
 import { bindActionCreators } from 'redux';
@@ -55,6 +55,7 @@ class TodoComponent extends Component {
                 </Header>
 
                 <View padder>
+                    <Badge />
                     <TextInput 
                         placeholder='add a todo' 
                         onChangeText={(text) => this.setState({newTodo:text})}
@@ -66,6 +67,7 @@ class TodoComponent extends Component {
                     >
                         <Text>Add</Text>
                     </Button>
+                    
                     {
                         this.props.todo.map((t,index) => {
                             const textDecorationLine = t.complete?'line-through':'none';

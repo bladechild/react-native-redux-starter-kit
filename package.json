@@ -17,6 +17,8 @@
     "test": "jest"
   },
   "dependencies": {
+    "axios": "^0.18.0",
+    "crypto": "^1.0.1",
     "native-base": "^2.3.3",
     "react": "^16.0.0",
     "react-native": "^0.50.0",

@@ -5,15 +5,17 @@ import SideBar from "../components/sidebar";
 import Home from "../components/home";
 import ModalBox from "../components/modalbox";
 import Todo from '../components/todo';
+import Product from '../components/product';
 
 const MainDrawerRouter = DrawerNavigator(
   {
-    Home: {screen: Home},
-    ModalBox: {screen: ModalBox},
-    Todo: {screen: Todo}
+    Home: { screen: Home },
+    ModalBox: { screen: ModalBox },
+    Todo: { screen: Todo },
+    Product: { screen: Product }
   },
   {
-    initialRouteName: "Todo",
+    initialRouteName: "Product",
     contentOptions: {
       activeTintColor: "#e91e63"
     },
